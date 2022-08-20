@@ -2,28 +2,38 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <!-- Project from https://start.vaadin.com/ -->
-    <groupId>com.example.application</groupId>
-    <artifactId>mytodo</artifactId>
-    <name>mytodo</name>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
-
-    <properties>
-        <java.version>11</java.version>
-        <vaadin.version>23.1.6</vaadin.version>
-        <selenium.version>4.2.1</selenium.version>
-    </properties>
-
+    <!-- ====================================================================== -->
+    <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
+    <!--                                                                        -->
+    <!-- Project from https://start.vaadin.com/                                 -->
+    <!--                                                                        -->
+    <!-- ====================================================================== -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.7.3</version>
     </parent>
-
+    <!-- ====================================================================== -->
+    <!-- P R O J E C T  D E S C R I P T I O N                                   -->
+    <!-- ====================================================================== -->
+    <groupId>net.marco27.vaadin</groupId>
+    <artifactId>bookmarks</artifactId>
+    <name>bookmarks</name>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <!-- ====================================================================== -->
+    <!-- P R O J E C T  P R O P E R T I E S                                     -->
+    <!-- ====================================================================== -->
+    <properties>
+        <java.version>11</java.version>
+        <vaadin.version>23.1.6</vaadin.version>
+        <selenium.version>4.2.1</selenium.version>
+    </properties>
+    <!-- ====================================================================== -->
+    <!-- M A N A G E M E N T                                                    -->
+    <!-- The order of definitions matters. Explicitly defining central here to make sure it has the highest priority. -->
+    <!-- ====================================================================== -->
     <repositories>
-        <!-- The order of definitions matters. Explicitly defining central here to make sure it has the highest priority. -->
-
         <!-- Main Maven repository -->
         <repository>
             <id>central</id>
@@ -47,7 +57,6 @@
             </snapshots>
         </repository>
     </repositories>
-
     <pluginRepositories>
         <!-- The order of definitions matters. Explicitly defining central here to make sure it has the highest priority. -->
         <pluginRepository>
@@ -64,7 +73,9 @@
             </url>
         </pluginRepository>
     </pluginRepositories>
-
+    <!-- ====================================================================== -->
+    <!-- D E P E N D E N C I E S -->
+    <!-- ====================================================================== -->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -76,7 +87,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>com.vaadin</groupId>
@@ -125,7 +135,9 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
+    <!-- ====================================================================== -->
+    <!-- B U I L D   D E F I N I T I O N                                        -->
+    <!-- ====================================================================== -->
     <build>
         <defaultGoal>spring-boot:run</defaultGoal>
         <plugins>
@@ -140,7 +152,6 @@
                     <maxAttempts>240</maxAttempts>
                 </configuration>
             </plugin>
-
             <!--
                 Take care of synchronizing java dependencies and imports in
                 package.json and main.js files.
@@ -160,7 +171,9 @@
             </plugin>
         </plugins>
     </build>
-
+    <!-- ====================================================================== -->
+    <!-- P R O F I L E S                                                        -->
+    <!-- ====================================================================== -->
     <profiles>
         <profile>
             <!-- Production mode is activated using -Pproduction -->
@@ -186,7 +199,6 @@
                 </plugins>
             </build>
         </profile>
-
         <profile>
             <id>it</id>
             <build>
@@ -211,7 +223,6 @@
                             </execution>
                         </executions>
                     </plugin>
-
                     <!-- Runs the integration tests (*IT) after the server is started -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -232,6 +243,5 @@
                 </plugins>
             </build>
         </profile>
-
     </profiles>
 </project>
